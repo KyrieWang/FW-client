@@ -53,6 +53,7 @@
     <Compile Include="DevicesCheck.cs" />
     <Compile Include="forms\DeviceForm.cs" />
     <Compile Include="forms\DNP3RulesForm.cs" />
+    <Compile Include="forms\FWDeviceForm.cs" />
     <Compile Include="forms\ModbusTcpRulesForm.cs" />
     <Compile Include="forms\OPCRulesForm.cs" />
     <Compile Include="IDevicesCheck.cs" />

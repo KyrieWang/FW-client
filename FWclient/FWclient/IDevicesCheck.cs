@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FWclient.forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,6 @@ namespace FirewallClientTest
         /// <param name="start_IP">起始IP地址</param>
         /// <param name="end_IP">结束IP地址</param>
         /// <returns>返回List<string>，防火墙设备的IP地址列表</returns>
-        List<string> CheckDevices(string start_IP, string end_IP);
+        List<FWDeviceForm> CheckDevices(string start_IP, string end_IP);
     }
 }

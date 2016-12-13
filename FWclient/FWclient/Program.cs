@@ -1,5 +1,6 @@
 ﻿#define debug
 
+using FWclient.forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,17 +45,19 @@ namespace FirewallClientTest
             ///DeviceConfirm接口测试
             IDevicesCheck devConfirm = new DevicesCheck();
             //devConfirm.CheckDevices();
-            List<string> devip_list = devConfirm.CheckDevices("172.16.10.76", "172.16.10.78");
-            foreach (string devip in devip_list)
+            List<FWDeviceForm> fws = devConfirm.CheckDevices("172.16.10.108", "172.16.10.110");
+            foreach (FWDeviceForm fw in fws)
             {
-                Console.WriteLine("devip is : {0}", devip);
-            }
+                string fwip = fw.getFw_IP();
+                string fwlabl = fw.getFw_lab();
+                List<string> deviplist = fw.getDevIP_list();
 
-            IDevicesCheck devconfirm = new DevicesCheck();
-            List<string> devIP_list = devconfirm.CheckDevices("172.16.10.76", "172.16.10.78");
-            foreach (string devip in devIP_list)
-            {
-                Console.WriteLine(" ano devip is : {0}", devip);
+                Console.WriteLine("fwip is : {0} fwlabl is : {1}", fwip, fwlabl);
+                Console.WriteLine("devips are :");
+                foreach (string  devip in deviplist )
+                {
+                    Console.WriteLine(devip);
+                }
             }
 
 #if debug

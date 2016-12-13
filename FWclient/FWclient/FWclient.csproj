@@ -57,7 +57,9 @@
     <Compile Include="forms\ModbusTcpRulesForm.cs" />
     <Compile Include="forms\OPCRulesForm.cs" />
     <Compile Include="IDevicesCheck.cs" />
+    <Compile Include="INoIPConfig.cs" />
     <Compile Include="IRulesManage.cs" />
+    <Compile Include="NoIPConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RulesManage.cs" />

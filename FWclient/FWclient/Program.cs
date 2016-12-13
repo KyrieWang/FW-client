@@ -1,5 +1,6 @@
 ﻿#define debug
 
+using FWclient;
 using FWclient.forms;
 using System;
 using System.Collections.Generic;
@@ -58,6 +59,10 @@ namespace FirewallClientTest
                 {
                     Console.WriteLine(devip);
                 }
+
+                Console.WriteLine("no ip config start :");
+                INoIPConfig noip = new NoIPConfig();
+                noip.NoipConfig(fw);
             }
 
 #if debug

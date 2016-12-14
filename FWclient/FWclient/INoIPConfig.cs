@@ -9,6 +9,6 @@ namespace FWclient
 {
     interface INoIPConfig
     {
-        void NoipConfig(FWDeviceForm fw_dev);
+        bool NoipConfig(FWDeviceForm fw_dev);
     }
 }

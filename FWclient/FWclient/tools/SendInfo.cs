@@ -58,7 +58,7 @@ namespace FirewallClientTest
         public void SendCheckInfo()
         {
             string mac = GetLocalMacAddr.GetMacAddr();  //获取本机MAC地址
-            Console.WriteLine("local mac is {0}", mac);
+            //Console.WriteLine("local mac is {0}", mac);
 
             byte[] head = { 0x0f, 0x0f };   //自定义数据包包头
             byte[] body = Encoding.ASCII.GetBytes(mac + "!");

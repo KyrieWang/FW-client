@@ -19,7 +19,7 @@ namespace FirewallClientTest
         /// <param name="function_code_select">modbusTcp规则中禁止通过的功能码，该字符串数组元素只能表示为十进制形式，如“01”“33”</param>
         /// <param name="dev_IP">防火墙设备IP地址</param>
         /// <param name="log_record">是否记录日志</param>
-        void AddModbusTcpRules(string dst_IP, string src_IP, string min_addr, string max_addr, string[] function_code_select, string dev_IP, bool log_record);
+        bool AddModbusTcpRules(string dst_IP, string src_IP, string min_addr, string max_addr, string[] function_code_select, string dev_IP, bool log_record);
 
         /// <summary>
         /// 添加OPC规则
@@ -28,7 +28,7 @@ namespace FirewallClientTest
         /// <param name="src_IP">OPC规则中的源地址</param>
         /// <param name="dev_IP">防火墙设备IP地址</param>
         /// <param name="log_record">是否记录日志</param>
-        void AddOPCRules(string dst_IP, string src_IP, string dev_IP, bool log_record);
+        bool AddOPCRules(string dst_IP, string src_IP, string dev_IP, bool log_record);
 
         /// <summary>
         /// 添加DNP3规则
@@ -37,12 +37,12 @@ namespace FirewallClientTest
         /// <param name="src_IP">DNP3规则中的源地址</param>
         /// <param name="dev_IP">防火墙设备IP地址</param>
         /// <param name="log_record">是否记录日志</param>
-        void AddDNP3Rules(string dst_IP, string src_IP, string dev_IP, bool log_record);
+        bool AddDNP3Rules(string dst_IP, string src_IP, string dev_IP, bool log_record);
 
         /// <summary>
         /// 清除所有规则
         /// </summary>
         /// <param name="dev_IP">防火墙设备IP地址</param>
-        void ClearAllRules(string dev_IP);
+        bool ClearAllRules(string dev_IP);
     }
 }

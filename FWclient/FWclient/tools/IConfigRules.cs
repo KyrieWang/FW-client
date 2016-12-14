@@ -12,23 +12,23 @@ namespace FirewallClientTest
         /// 配置modbusTcp规则
         /// </summary>
         /// <param name="mtrf">modbusTcp规则实例</param>
-        void ConfigModbusTcpRules(ModbusTcpRulesForm mtrf);
+        bool ConfigModbusTcpRules(ModbusTcpRulesForm mtrf);
 
         /// <summary>
         /// 配置OPC规则
         /// </summary>
         /// <param name="orf">OPC规则实例</param>
-        void ConfigOPCRules(OPCRulesForm orf);
+        bool ConfigOPCRules(OPCRulesForm orf);
 
         /// <summary>
         /// 配置DNP3规则
         /// </summary>
         /// <param name="dnp3rf">DNP3规则实例</param>
-        void ConfigDNP3Rules(DNP3RulesForm dnp3rf);
-        
+        bool ConfigDNP3Rules(DNP3RulesForm dnp3rf);
+
         /// <summary>
         /// 清除规则
         /// </summary>
-        void ClearAllRules();
+        bool ClearAllRules();
     }
 }

@@ -52,7 +52,7 @@ namespace FirewallClientTest
             }
             ICaptureDevice device = devices[0];
             device.OnPacketArrival += new PacketArrivalEventHandler(configDev_OnPacketArrival);
-            int readTimeoutMilliseconds = 1000;
+            int readTimeoutMilliseconds = 4000;
             device.Open(DeviceMode.Promiscuous, readTimeoutMilliseconds);
             string filter = "ip and udp";
             device.Filter = filter;

@@ -49,20 +49,29 @@ namespace FirewallClientTest
             List<FWDeviceForm> fws = devConfirm.CheckDevices("172.16.10.108", "172.16.10.110");
             foreach (FWDeviceForm fw in fws)
             {
-                string fwip = fw.getFw_IP();
+                string fwip = fw.getDev_IP();
                 string fwlabl = fw.getFw_lab();
                 List<string> deviplist = fw.getDevIP_list();
 
-                Console.WriteLine("fwip is : {0} fwlabl is : {1}", fwip, fwlabl);
-                Console.WriteLine("devips are :");
+                Console.WriteLine("防火墙设备IP : {0} 防火墙设备编号 : {1}", fwip, fwlabl);
+                Console.WriteLine("关联的受保护IP :");
                 foreach (string  devip in deviplist )
                 {
                     Console.WriteLine(devip);
                 }
-
-                Console.WriteLine("no ip config start :");
+                
+                Console.WriteLine("无IP模式配置测试 :");
                 INoIPConfig noip = new NoIPConfig();
-                noip.NoipConfig(fw);
+                if (noip .NoipConfig (fw))
+                {
+                    Console.WriteLine("无IP模式配置成功！！！");
+                    Console.WriteLine("IP :{0}", fw.getDev_IP());
+                }
+                else
+                {
+                    Console.WriteLine("无IP模式配置失败！！！");
+                    Console.WriteLine("IP :{0}", fw.getDev_IP());
+                } 
             }
 
 #if debug

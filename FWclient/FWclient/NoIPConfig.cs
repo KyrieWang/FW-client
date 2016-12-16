@@ -18,7 +18,7 @@ namespace FWclient
         bool INoIPConfig.NoipConfig(FWDeviceForm fw_dev)
         {
             string cmd = "ifconfig br0 down && ifconfig br0 0.0.0.0 up";
-            
+            fw_dev.setDev_port(22222);
             /*
              *本身就无IP的防火墙不能配置为无IP模式
              */

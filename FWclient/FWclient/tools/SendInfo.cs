@@ -52,7 +52,7 @@ namespace FirewallClientTest
             }
             ICaptureDevice device = devices[0];
             device.OnPacketArrival += new PacketArrivalEventHandler(configDev_OnPacketArrival);
-            int readTimeoutMilliseconds = 4000;
+            int readTimeoutMilliseconds = 2000;
             device.Open(DeviceMode.Promiscuous, readTimeoutMilliseconds);
             string filter = "ip and udp";
             device.Filter = filter;
@@ -112,11 +112,13 @@ namespace FirewallClientTest
             if (udpPacket != null)
             {
                 var ipPacket = (PacketDotNet.IpPacket)udpPacket.ParentPacket;
-                System.Net.IPAddress srcIp = ipPacket.SourceAddress;
+                //System.Net.IPAddress srcIp = ipPacket.SourceAddress;
                 int srcPort = udpPacket.SourcePort;
                 int dstPort = udpPacket.DestinationPort;
-
-                if (srcPort == 30330 && dstPort == 30331)
+#if debug
+                Console.WriteLine("端口检查");
+#endif
+                if (srcPort == 30332 && dstPort == 30333)
                 {
                     byte[] payload = udpPacket.PayloadData;
                     string content = System.Text.Encoding.Default.GetString(payload); //确认包的内容

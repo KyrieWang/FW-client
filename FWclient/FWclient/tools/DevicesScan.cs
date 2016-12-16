@@ -31,10 +31,7 @@ namespace FirewallClientTest
 #if debug
                 Console.WriteLine(dev_IP);
 #endif
-
-                DeviceForm devform = new DeviceForm();
-                devform.setDev_IPAndDev_port(dev_IP, 33333);
-
+                DeviceForm devform = new DeviceForm(dev_IP, 33333);
                 SendInfo sendcheckInfo = new SendInfo(devform);
                 sendcheckInfo.SendCheckInfo();
             }

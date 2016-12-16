@@ -9,51 +9,35 @@ namespace FirewallClientTest
     class DevicesCheck : IDevicesCheck 
     {
         private static  List<FWDeviceForm> fw_list = new List<FWDeviceForm>(); //单次扫描到的防火墙设备
-
-        private static List<string> fwIP_list = new List<string>(); //所有扫描到的防火墙设备的IP
+        private static List<string> fwIP_list = new List<string>(); //单次扫描到的防火墙设备的IP
         private static int  fw_num = 1; //防火墙标识计数
 
         public List<FWDeviceForm> CheckDevices(string start_IP, string end_IP)
         {
-            CaptureDeviceList devices = CaptureDeviceList.Instance;
+            fw_list.Clear();
+            fwIP_list.Clear();
 
+            CaptureDeviceList devices = CaptureDeviceList.Instance;
             // If no devices were found print an error
             if (devices.Count < 1)
             {
-               // Console.WriteLine("No devices were found on this machine");
-                return null;
+                // Console.WriteLine("No devices were found on this machine");
+                return fw_list;
             }
-
-            //Console.WriteLine("\nThe following devices are available on this machine:");
-            //Console.WriteLine("----------------------------------------------------\n");
-
-            // Print out the available network devices
-            /*
-            foreach (ICaptureDevice dev in devices)
-                Console.WriteLine("{0} {1}", dev.Name, dev.Description); */
-
-            fw_list.Clear();
-
             ICaptureDevice device = devices[0];
-
-            device.OnPacketArrival +=
-                new PacketArrivalEventHandler(device_OnPacketArrival);
-
+            device.OnPacketArrival += new PacketArrivalEventHandler(device_OnPacketArrival);
             int readTimeoutMilliseconds = 1000;
             device.Open(DeviceMode.Promiscuous, readTimeoutMilliseconds);
 
             string filter = "ip and udp";
             device.Filter = filter;
-            
             device.StartCapture();
 
             IDevicesScan devScan = new DevicesScan();
             devScan.ScanDevice(start_IP, end_IP);
 
             device.StopCapture();
-
             device.Close();
-
             return fw_list;
         }
 
@@ -84,7 +68,7 @@ namespace FirewallClientTest
                     {
                         foreach (FWDeviceForm fwdev in fw_list)
                         {
-                            if (fwdev.getFw_IP() == fw_IP)
+                            if (fwdev.getDev_IP() == fw_IP)
                             {
                                 fwdev.addDev_IP(dev_IP);
                             }
@@ -92,7 +76,7 @@ namespace FirewallClientTest
                     }
                     else
                     {
-                        FWDeviceForm fw_dev = new FWDeviceForm(fw_IP, fw_num.ToString(), dev_IP);
+                        FWDeviceForm fw_dev = new FWDeviceForm(fw_IP, 22222, fw_num.ToString(), dev_IP);
                         fwIP_list.Add(fw_IP);
                         fw_list.Add(fw_dev);
                         fw_num++;

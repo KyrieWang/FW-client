@@ -1,4 +1,4 @@
-﻿//#define debug
+﻿#define debug
 
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ namespace FirewallClientTest
 {
     class DevicesScan : IDevicesScan
     {
-        public void ScanDevice(string start_IP, string end_IP)
+        public int ScanDevice(string start_IP, string end_IP)
         {
             string[] sArray_startIP = start_IP.Split('.');
             string[] sArray_endIP = end_IP.Split('.');
@@ -18,6 +18,7 @@ namespace FirewallClientTest
 
             int start = Int32.Parse(sArray_startIP[3]);
             int end = Int32.Parse(sArray_endIP[3]);
+            int IP_num = end - start;
 
             List<string> dev_IP_list = new List<string>();
 
@@ -35,6 +36,8 @@ namespace FirewallClientTest
                 SendInfo sendcheckInfo = new SendInfo(devform);
                 sendcheckInfo.SendCheckInfo();
             }
+
+            return IP_num;
         }
     }
 }

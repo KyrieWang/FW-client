@@ -13,6 +13,6 @@ namespace FirewallClientTest
         /// </summary>
         /// <param name="start_IP">起始IP地址</param>
         /// <param name="end_IP">结束IP地址</param>
-        void ScanDevice(string start_IP,string end_IP);
+        int ScanDevice(string start_IP,string end_IP);
     }
 }

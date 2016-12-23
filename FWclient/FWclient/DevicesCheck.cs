@@ -83,7 +83,12 @@ namespace FirewallClientTest
                         {
                             if (fwdev.getDev_IP() == fw_IP)
                             {
-                                fwdev.addDev_IP_MAC(dev_IP, dev_mac);
+                                if (!fwdev.getProtecDevIP_list().Contains(dev_IP))
+                                {
+                                    ProtecDeviceForm protecDev = new ProtecDeviceForm(dev_IP, dev_mac);
+                                    fwdev.addProtecDev(protecDev);
+                                    fwdev.addProtecDevIP(dev_IP);
+                                }
                             }
                         }
                     }

@@ -20,6 +20,11 @@ namespace FirewallClientTest
             this.dev_port = dev_port;
         }
 
+        public DeviceForm(string dev_IP)
+        {
+            this.dev_IP = dev_IP;
+        }
+
         public string getDev_IP()
         {
             return dev_IP;

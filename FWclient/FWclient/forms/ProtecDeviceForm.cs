@@ -31,7 +31,7 @@ namespace FWclient.forms
             string sqlSearch = "select Manufacturers from macs where Macs="+"'"+ macQuery + "'";
             MySqlConnection con = new MySqlConnection(connStr);
             MySqlCommand cmd = new MySqlCommand(sqlSearch, con);
-
+            
             try
             {
                 con.Open();

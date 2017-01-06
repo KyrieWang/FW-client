@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="PacketDotNet">
       <HintPath>..\..\..\..\library\SharpPcap-4.2.0\Release\PacketDotNet.dll</HintPath>
     </Reference>
@@ -56,6 +57,7 @@
     <Compile Include="forms\FWDeviceForm.cs" />
     <Compile Include="forms\ModbusTcpRulesForm.cs" />
     <Compile Include="forms\OPCRulesForm.cs" />
+    <Compile Include="forms\ProtecDeviceForm.cs" />
     <Compile Include="IDevicesCheck.cs" />
     <Compile Include="INoIPConfig.cs" />
     <Compile Include="IRulesManage.cs" />

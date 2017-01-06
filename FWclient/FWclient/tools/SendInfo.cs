@@ -34,7 +34,7 @@ namespace FirewallClientTest
         {
             config_info_confirm = false;
 
-            byte[] head = { 0x0f, 0x0f };   //自定义数据包包头
+            byte[] head = { 0x0f, 0x0e, 0x0d };   //自定义数据包包头
             byte[] body = Encoding.ASCII.GetBytes(cmd + "!");
             byte[] data = head.Concat(body).ToArray();
 
@@ -80,7 +80,7 @@ namespace FirewallClientTest
             string mac = GetLocalMacAddr.GetMacAddr();  //获取本机MAC地址
             //Console.WriteLine("local mac is {0}", mac);
 
-            byte[] head = { 0x0f, 0x0f };   //自定义数据包包头
+            byte[] head = { 0x0f, 0x0e, 0x0d };   //自定义数据包包头
             byte[] body = Encoding.ASCII.GetBytes(mac + "!");
             byte[] data = head.Concat(body).ToArray();
 
